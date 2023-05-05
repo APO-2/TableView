@@ -1,6 +1,7 @@
 package com.example.employeemanager.controller;
 
 import com.example.employeemanager.model.Employee;
+import com.example.employeemanager.model.EmployeeList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -13,28 +14,26 @@ public class AddEmployeeController {
     private TextField nameEmployeeTF;
 
     @FXML
-    private TextField salaryEmployeeTF;
+    private TextField ageEmployeeTF;
 
-    private MainController mainController;
+    private EmployeeList employeeList;
 
-    public void setMainController(MainController mainController){
-        this.mainController = mainController;
+    public void setEmployeeList(EmployeeList employeeList){
+        this.employeeList = employeeList;
     }
-
 
     @FXML
     public void onAddEmployee(ActionEvent event) {
         String name = nameEmployeeTF.getText();
-        String salary = salaryEmployeeTF.getText();
+        String salary = ageEmployeeTF.getText();
         try {
-            int salario = Integer.parseInt(salary);
-            Employee empleado = new Employee(name, salario);
-            mainController.addEmployee(empleado);
+            int ageInteger = Integer.parseInt(salary);
+            Employee employee = new Employee(name, ageInteger);
+            employeeList.addEmployee(employee);
 
         } catch (NumberFormatException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error al agregar empleado");
-            alert.setHeaderText(null);
             alert.setContentText("El salario debe ser un número válido.");
             alert.showAndWait();
         }

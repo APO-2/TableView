@@ -11,15 +11,14 @@
             fx:controller="com.example.employeemanager.controller.AddEmployeeController"
             prefHeight="400.0" prefWidth="600.0">
 
-
     <VBox spacing="10">
         <Label text="Nombre:" />
         <TextField fx:id="nameEmployeeTF" />
 
-        <Label text="Salario:" />
-        <TextField fx:id="salaryEmployeeTF" />
+        <Label text="Age:" />
+        <TextField fx:id="ageEmployeeTF" />
 
         <Button text="Agregar" onAction="#onAddEmployee" />
-        <Button text="Cancelar" onAction="#onClose" />
+        <Button text="Cerrar" onAction="#onClose" />
     </VBox>
 </AnchorPane>
